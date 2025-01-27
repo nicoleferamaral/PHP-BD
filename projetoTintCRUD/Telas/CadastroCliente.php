@@ -1,7 +1,11 @@
 <?php
     namespace PHP\Modelo\Tela;
     require_once('..\Cliente.php');
+    require_once('..\DAO\Conexao.php');
+    require_once('..\DAO\Inserir.php');
     use PHP\Modelo\Cliente;
+    use PHP\Modelo\DAO\Conexao;
+    use PHP\Modelo\DAO\Inserir;
 
 ?>
 
@@ -33,6 +37,9 @@
   </div>
   <button type="submit" class="button-confirm">Cadastrar →
     <?php
+        $conexao = new Conexao(); //Conectar no Banco
+
+
         if(isset($_POST['cpf']) && isset($_POST['nome']) && isset($_POST['telefone']) && isset($_POST['endereco']) && isset($_POST['total'])){
         $cpf = $_POST['cpf'];
         $nome = $_POST['nome'];
@@ -40,16 +47,12 @@
         $endereco = $_POST['endereco'];
         $totalDeCompras = $_POST['total'];
 
-        $cliente1 = new Cliente($cpf,$nome,$telefone,$endereco,$totalDeCompras);
-        }
+        $inserir = new Inserir();
+        echo $inserir->cadastrarCliente($conexao, $cpf,$nome,$telefone,$endereco,$totalDeCompras);
+    }
     ?>
   </button>
 </form>
-
-<?php
-    echo $cliente1->imprimir();
-
-?>
     
 </body>
 </html>
