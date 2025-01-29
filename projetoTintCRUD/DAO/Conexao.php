@@ -6,7 +6,7 @@
             try{
                 $conn = mysqli_connect('localhost', 'root','','phpTINT');
                 if($conn){
-                    echo "<br>Cadastrado com sucesso!";
+                    echo "<br>Conectado com sucesso!";
                     return $conn;
                 }
                 echo "<br>Algo deu errado!";

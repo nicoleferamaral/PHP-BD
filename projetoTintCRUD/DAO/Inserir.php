@@ -26,7 +26,7 @@
 
         }
 
-        function cadastrarFuncionario(Conexao $conexao, string $cpf, string $nome, string $endereco, string $telefone, float $salario){
+        function cadastrarFuncionario(Conexao $conexao, string $cpf, string $nome, string $telefone, string $endereco, float $salario){
 
             try{
                 $conn = $conexao->conectar();

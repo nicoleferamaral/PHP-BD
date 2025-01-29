@@ -14,12 +14,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar Cliente</title>
+    <title>Consultar Funcionário</title>
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <form method="POST" class="form">
-  <div class="title">Consultar Cliente<br><span>Informe um CPF</span></div>
+  <div class="title">Consultar Funcionário<br><span>Informe um CPF</span></div>
   <input class="input" name="tcpf" placeholder="CPF" type="text" >
   
   
@@ -30,13 +30,15 @@
           if(isset($_POST['tcpf'])){
             $cpf = $_POST['tcpf'];
             $consultar = new Consultar();
+          }else{
+            echo "Preencha o campo CPF";
           }
       ?>
   </button>
 </form>
 <?php
   if(isset($_POST['tcpf'])){
-  echo $consultar->consultarClienteIndividual($conexao,$cpf);
+  echo $consultar->consultarFuncionarioIndividual($conexao,$cpf);
   }else{
     echo "Preencha o campo CPF";
   }
